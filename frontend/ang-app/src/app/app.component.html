@@ -1,0 +1,50 @@
+
+<div class="container">
+
+  <header class="header">
+    <h1>Angular + Node.js AWS CI/CD</h1>
+    <p>Deployment Practice Application</p>
+  </header>
+
+  <section class="status-card">
+    <h2>Backend API Status</h2>
+
+    <button (click)="checkBackend()">
+      Check Backend
+    </button>
+
+    <p [class.success]="backendStatus === 'UP'"
+       [class.error]="backendStatus === 'DOWN'">
+      {{ backendStatus }}
+    </p>
+  </section>
+
+  <section class="users-card">
+    <h2>User Management</h2>
+
+    <button (click)="loadUsers()">
+      Load Users
+    </button>
+
+    <table *ngIf="users.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p *ngIf="users.length === 0">
+      No users loaded.
+    </p>
+  </section>
+
+</div>
